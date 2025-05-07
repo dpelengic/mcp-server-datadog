@@ -206,6 +206,21 @@ MCP server for the Datadog API, enabling incident management and more.
       - `sessionId` (string): Session ID to filter events.
     - **Returns**: Waterfall data for the specified application and session.
 
+21. `search_events`
+
+    - Search for events in Datadog using advanced filtering.
+    - **Inputs**:
+      - `query` (optional string): Search query to filter events (e.g., 'datadog-agent').
+      - `from` (string): Start time in ISO8601 format or date math (e.g., '2020-09-17T11:48:36+01:00' or 'now-15m').
+      - `to` (string): End time in ISO8601 format or date math (e.g., 'now').
+      - `options` (optional object): Additional options for the search.
+        - `timeOffset` (optional number): The time offset to apply to the query in seconds.
+        - `timezone` (optional string): The timezone for the query (e.g., 'UTC', 'America/New_York').
+      - `sort` (optional string): Sort order for events ('timestamp' or '-timestamp').
+      - `limit` (optional number): Maximum number of events to return per page (default: 10).
+      - `cursor` (optional string): Cursor for pagination.
+    - **Returns**: Array of events with their attributes including message, tags, timestamp, monitor info, and more.
+
 ## Setup
 
 ### Datadog Credentials
